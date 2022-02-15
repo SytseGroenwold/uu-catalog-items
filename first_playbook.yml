@@ -1,5 +1,7 @@
 ---
 - name: Simple test
   hosts: localhost
-  bash: touch /tmp/sytse.test
+  tasks:
+    - name: Make test file
+      command: touch /tmp/sytse.test
 ...
