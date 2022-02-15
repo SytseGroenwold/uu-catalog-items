@@ -1,0 +1,4 @@
+---
+- name: Simple test
+  bash: touch /tmp/sytse.test
+...
