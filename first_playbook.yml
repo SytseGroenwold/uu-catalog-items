@@ -1,5 +1,5 @@
 ---
 - name: Simple test
-  host: localhost
+  hosts: localhost
   bash: touch /tmp/sytse.test
 ...
