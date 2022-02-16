@@ -1,5 +1,5 @@
 ---
-- name: Simple test
+- name: Extract repo name from url
   hosts: localhost
   gather_facts: true
   roles:
