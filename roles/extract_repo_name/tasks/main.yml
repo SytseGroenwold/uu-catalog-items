@@ -1,11 +1,10 @@
 ---
-- name: Register repo name variable extracted from urll
-  shell: echo {{ repo_url | regex_search('.*(?=.git)') | regex_search('\/(?:.(?!\/))+$') | regex_search('[^/].*') }}
-  register: repo_name
-  ignore_errors: false
+- name: Create list of repos to checkout
+  set_fact: repos="{{ repositories.split(';') }}"
 
-- name: Clone repo
-  git:
-    repo: '{{ repo_url }}'
-    dest: /var/git/{{ repo_name.stdout }}
+- name: Loop clone_repo task for each item
+  include_tasks: clone_repo.yml
+  loop: "{{ repos }}"
+  loop_control:
+    loop_var: repo_url
 ...
