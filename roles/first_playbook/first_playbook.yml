@@ -1,7 +1,0 @@
----
-- name: Simple test
-  hosts: localhost
-  tasks:
-    - name: Make test file
-      command: touch /tmp/sytse.test
-...

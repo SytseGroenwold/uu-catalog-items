@@ -1,7 +1,0 @@
----
-- name: Simple test
-  hosts: localhost
-  gather_facts: true
-  roles:
-    - extract_repo_name
-...
