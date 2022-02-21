@@ -1,0 +1,7 @@
+---
+- name: Install Visual Studio Code
+  hosts: localhost
+  gather_facts: true
+  roles:
+    - install_vsc
+...

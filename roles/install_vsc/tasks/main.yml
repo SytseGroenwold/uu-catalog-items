@@ -1,0 +1,14 @@
+---
+- name: assert supported distribution
+  assert:
+    that:
+      - "ansible_pkg_mgr in ('apt', 'yum')"
+
+- name: assert supported build
+  assert:
+    that:
+      - "visual_studio_code_build in ('stable', 'insiders')"
+
+- name: 'install ({{ ansible_pkg_mgr }})'
+  include_tasks: 'install-{{ ansible_pkg_mgr }}.yml'
+...
