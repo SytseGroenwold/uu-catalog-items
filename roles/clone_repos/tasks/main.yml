@@ -5,7 +5,7 @@
 - name: Clone each repo from list in its individual folder
   git:
     repo: '{{ item }}'
-    dest: /var/git/{{ item | basename }}  # Basename gathers the name of the repository from the URL.
+    dest: /var/git/{{ item | basename }}  #'| basename` gathers the name of the repository from the URL
   with_items:
   -  "{{ repos }}"
 ...
