@@ -10,5 +10,5 @@
       - "visual_studio_code_build in ('stable', 'insiders')"
 
 - name: 'install ({{ ansible_pkg_mgr }})'
-  include_tasks: '/tasks/install-{{ ansible_pkg_mgr }}.yml'
+  include_tasks: ' {{ playbook_dir }}/tasks/install-{{ ansible_pkg_mgr }}.yml'
 ...
