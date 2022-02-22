@@ -46,7 +46,9 @@
   copy: src=virtuoso.isql dest=/var/tmp/virtuoso.isql
 
 - name: Start virtuoso 
-  supervisorctl: name=virtuoso state=restarted
+  command: -f &
+  args: 
+    chdir: "{{ virtuoso_install_dir }}/var/lib/virtuoso/db/virtuoso-t -f &"
 
 - name: Wait for virtuoso port to be open
   wait_for: port=1111 delay=10
