@@ -14,6 +14,7 @@
     - git
     - gperf
     - libtool
+    - libssl-dev
     - m4
     - make
     - openssl
