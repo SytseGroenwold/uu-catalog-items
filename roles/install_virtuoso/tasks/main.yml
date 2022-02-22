@@ -47,9 +47,9 @@
   copy: src=virtuoso.isql dest=/var/tmp/virtuoso.isql
 
 - name: Start virtuoso 
-  command: -f &
+  command: "{{ virtuoso_install_dir}}/bin/virtuoso-t"
   args: 
-    chdir: "{{ virtuoso_install_dir }}/var/lib/virtuoso/db/virtuoso-t -f &"
+    chdir: "{{ virtuoso_install_dir }}/var/lib/virtuoso/db"
 
 - name: Wait for virtuoso port to be open
   wait_for: port=1111 delay=10
