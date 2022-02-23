@@ -46,10 +46,17 @@
 - name: Copy isql file to enable sparql
   copy: src=virtuoso.isql dest=/var/tmp/virtuoso.isql
 
+- name: Create Virtuoso service unit file
+  template:
+    src: virtuoso.service.j2
+    dest: /lib/systemd/system/teamcity.service
+    mode: 644
+    notify:
+      - reload systemctl
+
 - name: Start virtuoso 
-  command: "{{ virtuoso_install_dir}}/bin/virtuoso-t"
-  args: 
-    chdir: "{{ virtuoso_install_dir }}/var/lib/virtuoso/db"
+  systemd:
+    state: started
 
 - name: Wait for virtuoso port to be open
   wait_for: port=1111 delay=10

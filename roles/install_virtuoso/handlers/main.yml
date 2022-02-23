@@ -2,13 +2,17 @@
 # handlers file for virtuoso
 
 - name: stop virtuoso
-  supervisorctl: name=virtuoso state=stopped
+  systemd:
+    name: virtuoso
+    state: stopped
 
 - name: clean source files
-  file: path=/var/tmp/virtuoso state=absent
+  file: 
+    path: /var/tmp/virtuoso
+    state: absent
 
-- name: stop supervisor
-  service: name=supervisor state=stopped
+# - name: stop supervisor
+#   service: name=supervisor state=stopped
 
 - name: remove build libs
   apt:
