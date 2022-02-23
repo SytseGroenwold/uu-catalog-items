@@ -51,8 +51,8 @@
     src: virtuoso.service.j2
     dest: /lib/systemd/system/virtuoso.service
     mode: 644
-    # notify:
-    #   - reload systemctl
+    notify:
+      - reload systemctl
 
 - name: Start virtuoso 
   systemd:
@@ -65,7 +65,6 @@
 - name: Run isql script to enable sparql permissions.
   command: "{{ virtuoso_install_dir }}/bin/isql 1111 dba dba VERBOSE=OFF BANNER=OFF PROMPT=OFF ECHO=OFF BLOBS=ON ERRORS=stdout /var/tmp/virtuoso.isql"
   notify:
-    - stop virtuoso
     - clean source files
     - remove build libs
 ...

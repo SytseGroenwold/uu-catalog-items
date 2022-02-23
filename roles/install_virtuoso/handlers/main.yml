@@ -1,24 +1,23 @@
 ---
 # handlers file for virtuoso
 
-- name: stop virtuoso
-  systemd:
-    name: virtuoso
-    state: stopped
-
 - name: clean source files
   file: 
     path: /var/tmp/virtuoso
     state: absent
 
-# - name: stop supervisor
-#   service: name=supervisor state=stopped
+- name: stop virtuoso
+  systemd:
+    name: virtuoso
+    state: stopped
+
+- name: reload systemctl
+  command: systemctl daemon-reload
 
 - name: remove build libs
   apt:
-    pkg={{ item }}
-    state=absent 
-  with_items:
+    state: absent
+    pkg:
     - autoconf
     - automake
     - libtool
