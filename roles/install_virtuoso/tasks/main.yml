@@ -56,6 +56,7 @@
 
 - name: Start virtuoso 
   systemd:
+    name: virtuoso
     state: started
 
 - name: Wait for virtuoso port to be open
