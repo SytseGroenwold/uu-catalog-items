@@ -51,8 +51,8 @@
     src: virtuoso.service.j2
     dest: /lib/systemd/system/virtuoso.service
     mode: 644
-    notify:
-      - reload systemctl
+  notify:
+    - reload systemctl
 
 - name: Start virtuoso 
   systemd:
