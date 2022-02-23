@@ -44,7 +44,10 @@
     creates="{{ virtuoso_install_dir }}/bin/virtuoso-t"
 
 - name: Copy isql file to enable sparql
-  copy: src=virtuoso.isql dest=/var/tmp/virtuoso.isql
+  copy: 
+    src: virtuoso.isql 
+    dest: /var/tmp/virtuoso.isql
+    mode: 644
 
 - name: Create Virtuoso service unit file
   template:
