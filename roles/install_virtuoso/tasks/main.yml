@@ -49,7 +49,7 @@
 - name: Create Virtuoso service unit file
   template:
     src: virtuoso.service.j2
-    dest: /lib/systemd/system/teamcity.service
+    dest: /lib/systemd/system/virtuoso.service
     mode: 644
     # notify:
     #   - reload systemctl
