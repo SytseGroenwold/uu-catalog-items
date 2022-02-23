@@ -7,7 +7,7 @@ Group="virtuoso"
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart={{ virtuoso_install_dir}}/bin/virtuoso-t +configfile {{ virtuoso_install_dir }}/var/lib/virtuoso/db/virtuoso.ini
+ExecStart=/bin/bash -c "{{ virtuoso_install_dir}}/bin/virtuoso-t +configfile {{ virtuoso_install_dir }}/var/lib/virtuoso/db/virtuoso.ini"
 
 [Install]
 WantedBy=multi-user.target
